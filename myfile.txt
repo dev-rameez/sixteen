@@ -1,3 +1,295 @@
-Earth's Moon
-neil armstrong
-who is the second man
+GIT and Its Uses
+
+
+What is GIT
+
+
+Git is a free and open source distributed version control system tool designed to handle everything from small to very large projects with speed and efficiency. Linus Torvald made this tool.
+
+Advantages of Git
+
+
+Free and Open source
+Fast and consume very low space
+Most of the operation performed locally
+Git has common cryptography hash function which is called secure hash function (sha 1),  this secure function identify name and objects with its database
+No need for powerful hardware for git.
+Copy all the data when we create new branch
+
+What Is Repository
+
+
+Repository is a place where you have all kinds of code files and directories on the server and it relates to one product.
+
+Types of Repository
+
+
+Bare repository (central repo)
+We can only share and store data under a central repository which is called bare repository.
+
+Non Bare Repository (local repo)
+Where we can modify the files and update the code is called non bare repository
+
+Remote Server
+
+
+It stores all repositories and contains metadata also.
+
+Working Directory
+
+Where you can see files physically and do modifications on different branches.
+
+How data processing through GIT
+
+                                   Working Directory
+                                             |
+                                   Staging Area
+                                             |
+                                   Local Repositories       
+                                             |
+                                   GitHub (Central Repositories)
+
+How to install GIT
+
+> sudo apt-get install git
+> git  - - version
+> which git             (to check git is installed and where)
+> git config - -global user.name “write username”
+> git config - -global user.email “write email @here.com”
+> git config - -list
+
+Commit
+
+To store changes in local repositories it is called commit. After successful commit we will get a commit ID which is based on 40 alphanumeric characters. It uses SHA 1 checksum error. If we change one dot, the commit id will change. It actually helps you to track the changes.
+Commit is also named as sha1 hash.
+
+Commit ID
+
+Reference to identify each changes to identify who made the changes in files
+
+Tags
+
+Tags assign meaningful names with a specific version of repositories, tag is created for a particular save. If you create a new commit it will not be updated.
+
+Snapshot
+
+Representing the same data at a particular time, its stores incremental data only which changes have been made, not entire data.
+
+Push
+
+Push used to copy data from your local repository to remote repositories like github, gitlab, bitbucket etc.
+
+Pull
+
+
+Pull used to copy data from your remote repository to local repository and it works like synchronization.
+
+Branch
+
+Branch is a way to add new modifications and test these changes before applying or merge with the actual branch. We can create multiple branches in each project. All the data will be copied in the newly created branch for the first time from the base branch. You can merge your branches also. We can create separate branches for each task.
+
+How to connect github to your Local Repository
+
+Go to under your desire directory which you want to use as a local repository
+> git init
+> touch README (put some data)
+> git status
+> git add . (all files under this directory will be added)
+> git commit -m "first commit"
+> git log
+> git branch -M main
+> git remote add origin https://github.com/dsrameez/project.git
+> git push -u origin main
+> enter username and password
+
+Gitignore
+
+If you need to ignore some of your files or specific extension, which you use for testing purpose or anything like this which you don't want to push to the remote repository so you can ignore them by using this hidden file .gitignore, all the files which you add in this file will  push to the remote repository. You can ignore your file by following below steps:
+
+Create file with vi nano or touch
+> vi .gitignore
+> add file name with proper path
+> git add .gitignore
+> git commit -m “latest update exclude .txt”
+> git status
+
+GIT Pull & Push
+
+You can use push & pull under the same repository with different branches but you can not push & pull with another repository branch.
+
+Pull data in specific branch
+> git status
+> git pull -u origin <branchname>
+
+Pull data from configured branch
+> git status
+> git pull
+
+Push data in specific branch
+> git status
+> git push -u origin <branchname>
+
+Push data in configured branch
+> git status
+> git push
+
+GIT Diff
+
+Git diff is used to identify the changes for commits, branches or even a single file. You can check with this command what type changes have been done with the data.
+
+To check modification on your working directory file
+> git diff <filename>
+
+To check modification in your staging 
+> git diff   - - staged <filename>
+
+GIT Stash
+
+Stash is a temporary space which we can use to save temporary files. Suppose you are working on a project in your working space and implementing a new feature but suddenly you have to work on a different task which is very urgent so you can stash your work and start your new task in your working space. Your stash will save in temporary space and you can restore your work from stash from where you left when you finish your urgent task
+
+To save data with stash
+> git stash
+
+To see list of stash
+> git stash list
+
+To apply stash items.
+> git stash apply  stash@{stash-no}
+
+Now you can add and commit
+
+To remove all the save stash
+> git stash clear
+
+If you want to stash with specific branch
+> git stash origin branch-name
+
+To check the status of the stash
+> stash status
+
+If you want to apply stash and remove it automatically
+> git stash pop stash name
+
+If you want to delete the stash
+> git stash drop STASH-NAME
+
+If you want to del all the stashes
+> git stash clear
+
+
+
+
+GIT Branch Commands
+
+To see the list of branches
+> git branch
+
+To create new branch
+|> git branch <branch name>
+
+To switch branch
+> git checkout <branch name>
+
+To delete a branch
+> git branch -d <branch name>
+Use -D to delete forcefully
+
+For checking no of commits
+> git  log —oneline
+
+GIT Merge
+
+We can only merge branches which are under the same repository. We can not merge different repositories branches
+
+To merge branches
+> git merge <branch name>
+
+To verify the merge
+> git log
+
+To push central repo like GitHub
+> git push origin master or main
+
+GIT conflict
+
+When some files have different content in different branches and when you will merge these branches conflict occurs. We have to resolve the conflict first and then add and commit again. Edit the conflict file and make a few changes or update this file according to your settings and format and then save it.
+
+GIT Reset
+Git reset is used to undo local changes in git repo. Suppose you have completed your work and add your files in your repo then you realize you did something wrong and you want to correct this thing so you have to use git reset for deleting your files from the git repo.Git reset did not apply if you commit your files.
+
+To reset staging area
+> git reset <filename>
+
+To reset all
+> git reset .
+
+To reset staging and working space clean all.
+> git reset —hard
+
+
+GIT Revert
+
+Revert commands help you to undo all the existing commits. For Example if you commit all the addition and modification then you realize there is a mistake in this code so you can delete or undo commit files but if you use git revert then existing commit will proceed and you can make changes in your new commit.
+
+Main —----- 0 —-----1 —------- 2 —------- 3 —-------- 2—------
+
+Suppose you made a mistake on branch 3 and use git revert then branch 2 will commit next and you can start your work again.
+
+You can apply git revert with below command:
+
+> git revert <commit id>
+
+GIT Rebase
+
+Rebase is an action in Git that allows you to rewrite commits from one branch into another branch. Essentially, Git is deleting commits from one branch and adding them onto another.
+
+Why should we not use git rebase?
+
+
+If you do get conflicts during rebasing however, Git will pause on the conflicting commit, allowing you to fix the conflict before proceeding. Solving conflicts in the middle of rebasing a long chain of commits is often confusing, hard to get right, and another source of potential errors.
+
+First we have to merge that branch which we have to rebase and resolve the conflict and then we can rebase the branch with the following command.
+
+> git rebase <basebranch>
+
+GIT TAGS
+ 
+Tags operation allows giving meaningful names to a specific version in the repository. You can give tags to the commits as you like to remember them.
+
+To apply tag
+> git tag -a <tagname>  -m <message> <commit id>
+
+To see the list of tags
+> git tag
+
+To see particular commit content by using tag
+> git show <tagname>
+
+To delete a tags
+> git tag -d <tagname>
+
+
+GITHUB Clone
+
+Clone is used to copy all the data from a remote repository to your local machine or AWS. It will create an auto local repository in your machine and this folder shows in blue color.  You can use below command to clone all data in your desire repository
+
+> git clone (https:// url of github repo (central repository))
+
+If you want to clone any specific branch then use this command.
+> git clone -b <branchname> <http:// url of github repo>
+
+How to remove untracked files from git
+
+Those files which you created but did not add and commit with your local git repository so it will show in red color every time when you commit your changes. You can delete these files with beow commands.
+
+If you want to verify before deleting (dry run)
+> git clean -n
+
+If you want to delete forcefully
+> git clean -f
+
+
+
+Prepared By
+Muhammad Rameez
+DevOps Engineer 
