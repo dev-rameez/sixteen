@@ -288,8 +288,3 @@ If you want to verify before deleting (dry run)
 If you want to delete forcefully
 > git clean -f
 
-
-
-Prepared By
-Muhammad Rameez
-DevOps Engineer 
